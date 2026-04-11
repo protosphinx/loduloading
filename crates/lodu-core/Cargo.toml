@@ -1,0 +1,11 @@
+[package]
+name = "lodu-core"
+version = "0.1.0"
+edition = "2021"
+description = "Zero-copy LODU payload engine. Owns the preloaded dataset in WASM linear memory and exposes handle-based accessors."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]

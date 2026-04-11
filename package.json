@@ -1,0 +1,36 @@
+{
+  "name": "loduloading",
+  "version": "0.1.0",
+  "description": "The opposite of lazy loading. Ship the whole dataset inline, own it in WASM linear memory, walk it with zero-copy handles.",
+  "main": "src/lodu.js",
+  "files": [
+    "src/",
+    "dist/lodu_core.wasm",
+    "crates/",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./src/lodu.js",
+    "./server": "./src/server.js",
+    "./encoder": "./src/encoder.js",
+    "./wasm": "./dist/lodu_core.wasm"
+  },
+  "scripts": {
+    "build:wasm": "cargo build --target wasm32-unknown-unknown --release -p lodu-core && cp target/wasm32-unknown-unknown/release/lodu_core.wasm dist/lodu_core.wasm",
+    "test": "node test/roundtrip.test.js",
+    "example": "node examples/server.js"
+  },
+  "keywords": [
+    "lodu",
+    "loading",
+    "preload",
+    "ssr",
+    "wasm",
+    "zero-copy"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
